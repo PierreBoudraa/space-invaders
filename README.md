@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Space Invaders
 
-## Getting Started
+Un clone de Space Invaders développé avec Next.js, React et TypeScript, avec une boucle de jeu maison (pas de moteur de jeu externe).
 
-First, run the development server:
+![Aperçu du jeu](public/screenshots/SpaceInvaders.png)
+
+🎮 **[Jouer à la démo](https://space-invaders-tau-seven.vercel.app/)**
+
+## Contrôles
+
+- **← / →** : déplacer le vaisseau
+- **Espace** : tirer
+
+## Fonctionnalités
+
+- Boucle de jeu à 60 FPS (`requestAnimationFrame`)
+- Vagues d'ennemis infinies, avec difficulté progressive
+- 3 classes d'ennemis avec vitesse et valeur en points croissantes : Normal (10 pts), Rapide (20 pts), Ultra-rapide (40 pts)
+- Détection de collisions (tirs joueur/ennemis, ennemis/joueur)
+- Gestion d'état via hooks React (`useState`, `useRef`) pour séparer le rendu du calcul de jeu
+
+## Stack technique
+
+- **Next.js** (App Router)
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+
+## Lancer le projet en local
 
 ```bash
+git clone https://github.com/PierreBoudraa/space-invaders.git
+cd space-invaders
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvre [http://localhost:3000](http://localhost:3000) dans ton navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Ce que ce projet démontre
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Gestion d'une boucle de jeu performante en React (éviter les re-renders inutiles à chaque frame en combinant `useRef` pour l'état du jeu et `useState` pour ce qui doit déclencher un rendu)
+- Logique de collision et de spawn d'ennemis
+- Structuration d'un projet Next.js/TypeScript
